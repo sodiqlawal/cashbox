@@ -39,7 +39,7 @@ export default class Display extends React.Component {
                 <div  className='container-fluid pt4'>
                 {/* start of create modal */}
                 <Button color="primary" onClick={this.toggleNewUserCreateDataModal}>Create+</Button>
-                <Modal isOpen={this.state.newUserCreateDataModal} toggle={this.toggle}>
+                <Modal className="text-danger" isOpen={this.state.newUserCreateDataModal} toggle={this.toggleNewUserCreateDataModal}>
                 <ModalHeader toggle={this.toggleNewUserCreateDataModal}>Create a new user data</ModalHeader>
                 <ModalBody>
                     <FormGroup>
@@ -109,8 +109,8 @@ export default class Display extends React.Component {
                     </table>
 
                 {/* start more modal */}
-                <Modal isOpen={this.state.newUserDisplayDataModal} toggle={this.toggle}>
-                <ModalHeader toggle={this.toggleNewUserDisplayDataModal}>Complete User Profile</ModalHeader>
+                <Modal isOpen={this.state.newUserDisplayDataModal} toggle={this.toggleNewUserDisplayDataModal}>
+                <ModalHeader className="text-danger" toggle={this.toggleNewUserDisplayDataModal}>Complete User Profile</ModalHeader>
                 <ModalBody>
                     <FormGroup>
                     <Label for="firstname" className="b">FirstName:</Label>
