@@ -1,0 +1,18 @@
+tbody .action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+tbody .action .edit {
+  background: brown;
+  margin-right: 1px;
+  margin-left: 1px;
+  color: white;
+}
+
+tbody .action .delete {
+  background: red;
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */

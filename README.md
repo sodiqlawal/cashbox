@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Dataset
 
-###Using;
+### Using
 - ReactJs for the Frontend
 - ExpressJs for the Backend
 - PostgresSQL for the Database

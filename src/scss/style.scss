@@ -1,0 +1,15 @@
+tbody{
+    .action{
+        display: flex;
+        .edit{
+            background: brown;
+            margin-right: 1px;
+            margin-left: 1px;
+            color: white;
+        }
+        .delete{
+            background: red;
+            color: white;
+        }
+    }
+}
