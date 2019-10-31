@@ -1,15 +1,27 @@
 tbody{
     .action{
         display: flex;
+        .more{
+            color: white;
+            border: 1px solid silver;
+            border-radius: 10%;
+            box-shadow: 1px 1px silver;
+        }
         .edit{
             background: brown;
             margin-right: 1px;
             margin-left: 1px;
             color: white;
+            border: 1px solid brown;
+            border-radius: 10%;
+            box-shadow: 1px 1px silver;
         }
         .delete{
             background: red;
             color: white;
+            border: 1px solid red;
+            border-radius: 10%;
+            box-shadow: 1px 1px silver;
         }
     }
 }
