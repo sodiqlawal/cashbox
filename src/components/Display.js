@@ -9,7 +9,17 @@ export default class Display extends React.Component {
         this.state={
             data:[],
             newUserCreateDataModal: false,
-            newUserDisplayDataModal: false
+            newUserDisplayDataModal: false,
+            newUserData:{
+                firstname: '',
+                surname: '',
+                dob: '',
+                gender: '',
+                height: '',
+                haircolor: '',
+                weight: ''
+
+            }
         }
     }
 
@@ -22,13 +32,13 @@ export default class Display extends React.Component {
 
     toggleNewUserCreateDataModal = () => {
         this.setState({
-          newUserCreateDataModal:true
+          newUserCreateDataModal:!this.state.newUserCreateDataModal
         });
       }
 
       toggleNewUserDisplayDataModal = () => {
         this.setState({
-          newUserDisplayDataModal:true
+          newUserDisplayDataModal:!this.state.newUserDisplayDataModal
         });
       }
 
@@ -64,7 +74,11 @@ export default class Display extends React.Component {
                     </FormGroup>
                     <FormGroup>
                     <Label for="height">Height(m)</Label>
-                    <Input type="text" id="height" />
+                    <Input type="text" id="height" value={this.state.newUserData.height} onChange={(e)=>{
+                        let { newUserData } = this.state;
+                        newUserData.height = e.target.value;
+                        this.setState({ newUserData })
+                    }}/>
                     </FormGroup>
                     <FormGroup>
                     <Label for="haircolor">Hair Color</Label>
