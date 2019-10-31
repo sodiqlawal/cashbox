@@ -156,7 +156,6 @@ export default class Display extends React.Component {
                     </FormGroup>
                 </ModalBody>
                 <ModalFooter>
-                    <Button typr="submit" color="primary" onClick={this.toggleNewUserDisplayDataModal}>Submit</Button>{' '}
                     <Button color="secondary" onClick={this.toggleNewUserDisplayDataModal}>Cancel</Button>
                 </ModalFooter>
                 </Modal>              
