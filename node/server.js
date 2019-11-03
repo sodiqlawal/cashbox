@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const knex = require('knex');
+const morgan = require('morgan')
 
 const db = knex({
     client: 'pg',
@@ -18,25 +19,47 @@ const db = knex({
 //     // res.json(data)
 // });
 
-app = express();
-app.use(cors());
+const app = express();
 app.use(bodyParser.json());
+app.use(bodyParser.json());
+app.use(cors());
+app.use(morgan('dev'));
 
-app.get('/data', (req,res) => {
-    // const { firstname } = req.body;
-    // db.select('*').from('info').where({
-    //     firstname: firstname
-    // }).then(data => {
-    //     if(data.length){
-    //         res.json(data[0]);
-    //     }else {
-    //         res.status(400).send("data not found")      
-    //     }
-    // }).catch(err => res.status(400).json('error getting data'))
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
+
+app.get('/data', (req, res) => {
+
     db.select('*').from('info').then(data => {
         res.json(data)
     });
 })
+
+app.post('/', (req, res) => {
+
+  db('info').returning('*').insert({
+        firstname: req.body.firstname,
+        surname: req.body.surname,
+        dob: req.body.dob,
+        age: req.body.age
+      }).then(data => {
+        console.log(data)
+        res.json(data)
+      }).catch(err => res.status(400).json('unable to post'))
+})
+
+
+app.delete('remove/:id', (req, res) => {
+  var id = req.params.id;
+  // db('info').returning('*')
+  // .where({id:req.params.id})
+  // .del()
+  console.log(id)
+})
+
 
 
 
